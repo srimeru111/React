@@ -1,0 +1,55 @@
+//IssueTracker.js
+import React , {useState} from "react";
+import IssueList from "./IssueList";
+function IssueTracker(){
+const [Issue,SetIssue] =useState([
+    {id:1,title:"incorrect password"},
+    {id:2,title:"page not found"}
+])
+const [newIssue,SetNewIssue]=useState("");
+const addIssue = ()=>{
+if( newIssue.trim() === "") return;
+const newItem = {
+id =Issues.length+1;
+title={newIssue};
+}
+SetIssue=[...Issue,newIssue];
+SetNewIsssue("");
+}
+return(
+<div>
+<input type ="text"
+       value={newIssue}
+       placeholder="add new issue"
+       onChange{(e)=>SetNewIssue.(e.target.value)}/>
+<button onClick={addIssue}>Add</button>
+<IssueList Issue>{Issue}/>
+</div>
+);
+}
+export default IssueTracker;
+
+
+//IssueList.js (Stateless component)
+import React from "react";
+function IssueList({Issue}){
+return(
+<ul> {
+ Issue.map((item)=> ( <li key={item.id}>{item.title}) ></li>
+))}
+</ul>
+};
+export default IssueList;
+
+
+//App.js
+import React from "react";
+import IssueTracker from "./IssueTracker";
+function App(){
+return(
+<div>
+<IssueTracker/>
+</div>
+);
+}
+export default App;

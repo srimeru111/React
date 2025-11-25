@@ -1,0 +1,31 @@
+//Counter.js
+import  React , {useState,useEffect} from "react";
+function Counter(){
+    const[count,SetCount]=useState(0);
+    useEffect(()=>{
+        console.log("count is upadated: " ,count);
+    },
+    [count]);
+    return(
+        <div>
+            <h1>Counter</h1>
+            <h3>value:{count}</h3>
+            <button onClick={()=>SetCount(count+1)}>Increment</button>
+            <button onClick={()=>SetCount(count-1)}>Decrement</button>
+            <button onClick={()=>SetCount(0)}>Reset</button>
+        </div>
+    );
+}
+export default Counter;
+
+//App.js
+import React from "react";
+import Counter from "./Counter";
+function App(){
+  return(
+    <div>
+      <Counter/>
+    </div>
+  )
+}
+export default App;

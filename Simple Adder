@@ -1,0 +1,61 @@
+//Adder.js
+import React, {useState} from "react";
+import NumberA from "./NumberA";
+import NumberB from "./NumberB";
+function Adder(){
+    const[A , setA] =useState("");
+    const[B , setB] =useState("");
+    return(
+        <div> 
+            <h2>simple addition</h2>
+            <NumberA value={A} onChange={setA}/>
+            <NumberB value={B} onChange={setB}/>
+            <h3>Sum:{Number(A)+Number(B)}</h3>
+            </div>
+        
+    )
+}
+export default Adder;
+//NumberA
+import React from "react";
+function NumberA({value, onChange}){
+    return(
+        <div>
+            <h1>Number A</h1>
+            <input
+            type="number"
+            value={value}
+            placeholder="enter number A"
+            onChange={(e)=>onChange(e.target.value)}/>
+        </div>
+    )
+} 
+export default NumberA;
+//NumberB
+import React from "react";
+
+function NumberB({ value, onChange }) {
+  return (
+    <div>
+      <h3>Number B</h3>
+      <input
+        type="number"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default NumberB;
+//App.js
+import React from "react";
+import Adder from "./Adder";
+function App(){
+  return(
+    <div>
+      <Adder/>
+    </div>
+  )
+}
+export default App;

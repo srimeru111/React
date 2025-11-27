@@ -1,0 +1,31 @@
+//App.js
+import React ,{useState} from "react";
+import ColorPicker from "./ColorPicker";
+function App(){
+  const [color,setColor]=useState("Black");
+  const Colorchange=(newcolor)=>{
+    setColor(newcolor);
+  }
+  return(
+    <div>
+      <h2 style ={{color : color}}>SelcetColor:{color}</h2>
+      <ColorPicker onChangeColor={Colorchange}/>
+
+    </div>
+  )
+}
+
+export default App;
+//ColorPicker.js
+import React  from "react";
+function ColorPicker({onChangeColor}){
+    return(
+        <div>
+            <h2>pick a color</h2>
+            <button onClick={()=>onChangeColor("Red")}>Red</button>
+            <button onClick={()=>onChangeColor("Green")}>Green</button>
+            <button onClick={()=>onChangeColor("Blue")}>Blue</button>
+        </div>
+    )
+}
+export default ColorPicker;
